@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Plant extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'watered_at',
+    ];
+
+    public function water(){
+        $this->update([ 'watered_at' => now() ]);
+    }
 }
