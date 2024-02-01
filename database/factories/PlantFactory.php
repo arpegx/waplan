@@ -18,6 +18,7 @@ class PlantFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'watered_at' => fake()->date(),
         ];
     }
 }
