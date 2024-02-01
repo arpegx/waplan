@@ -5,6 +5,6 @@
     @endforeach
     <div class="w-fit mx-auto">
         {{-- {{$plants->links('vendor.pagination.custom-tailwind')}} --}}
-        {{$plants->links()}}
+        {{$plants->links('vendor/livewire/custom-tailwind')}}
     </div>
 </div>
