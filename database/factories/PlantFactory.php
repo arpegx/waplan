@@ -19,7 +19,7 @@ class PlantFactory extends Factory
         return [
             'name' => fake()->name(),
             'image' => 'resources/assets/images/calathea_korbmarante.jpeg',
-            'watered_at' => fake()->date(),
+            'watered_at' => fake()->datetime(),
         ];
     }
 }

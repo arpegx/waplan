@@ -4,7 +4,8 @@
     </div>
     <div class="grow">
         <p class="font-serif">{{$plant->name}}</p>
-        <p class="font-serif">{{$plant->watered_at}}</p>
+        {{-- <p class="font-serif">{{date_format($plant->watered_at, 'd-m-Y')}}</p> --}}
+        <p class="font-serif">{{date('d.m.Y', strtotime($plant->watered_at))}}</p>
     </div>
     <div class="self-end bg-green-200">
         <form>

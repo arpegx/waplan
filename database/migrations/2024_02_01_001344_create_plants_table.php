@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('image')->nullable();
-            $table->date('watered_at');
+            $table->datetime('watered_at');
             $table->timestamps();
         });
     }
