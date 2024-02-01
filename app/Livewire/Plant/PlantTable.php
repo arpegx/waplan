@@ -19,7 +19,7 @@ class PlantTable extends Component
     public function render()
     {
         return view('livewire.plant.plant-table', [
-            'plants' => Plant::orderby('watered_at')->paginate(5),
+            'plants' => Plant::orderby('watered_at')->paginate(10),
         ]);
     }
 }
