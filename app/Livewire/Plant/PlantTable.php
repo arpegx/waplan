@@ -11,18 +11,8 @@ use Livewire\Attributes\Title;
 #[Title("Plants")]
 class PlantTable extends Component
 {
-    // #[On("refresh")]
-    // public function rerender(){
-    //     $this->render();
-    // }
-
-    public function water(Plant $plant): void {
-        // $this->validate([
-        //     'plant' => 'required',
-        // ]);
-        $plant->water();
-    }
-
+    #[On("rerender")]
+    public function rerender(){ $this->render(); }
     public function render()
     {
         return view('livewire.plant.plant-table', [
