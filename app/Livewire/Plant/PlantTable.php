@@ -12,6 +12,7 @@ use Livewire\WithPagination;
 class PlantTable extends Component
 {
     use WithPagination;
+    public function paginationView() { return 'vendor/livewire/custom-tailwind'; }
     
     #[On("rerender")]
     public function rerender(){ $this->render(); }
