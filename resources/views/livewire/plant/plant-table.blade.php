@@ -4,6 +4,7 @@
         @livewire('plant.plant-row', ['plant' => $plant], key($plant->id))
     @endforeach
     <div class="w-fit mx-auto">
+        {{-- {{$plants->links('vendor.pagination.custom-tailwind')}} --}}
         {{$plants->links()}}
     </div>
 </div>
