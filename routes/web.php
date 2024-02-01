@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", PlantTable::class)->name("plant.table");
 
-// Route::view('/', 'welcome');
+Route::view('/welcome', 'welcome');
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
