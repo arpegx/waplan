@@ -13,6 +13,6 @@ class PlantSeeder extends Seeder
      */
     public function run(): void
     {
-        Plant::factory()->count(5)->create();
+        Plant::factory()->count(15)->create();
     }
 }

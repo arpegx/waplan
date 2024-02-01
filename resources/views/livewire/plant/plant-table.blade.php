@@ -3,4 +3,7 @@
     @foreach ($plants as $plant)
         @livewire('plant.plant-row', ['plant' => $plant], key($plant->id))
     @endforeach
+    <div class="w-fit mx-auto">
+        {{$plants->links()}}
+    </div>
 </div>
