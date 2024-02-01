@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            // $table->time('watered_at');
             $table->timestamps();
         });
     }
