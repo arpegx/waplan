@@ -1,7 +1,7 @@
 <div>
     <h1>Plant</h1>
     @foreach ($plants as $plant)
-        <p wire:key="{{$plant->id}}">{{$plant->name}}</p>
+        @livewire('plant.plant-row', ['plant' => $plant], key($plant->id))
     @endforeach
     
     The whole world belongs to you.
