@@ -10,8 +10,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="flex h-screen items-center justify-center">
-        <div class="container mx-auto w-4/5 bg-white h-5/6">
+    <body class="flex h-screen items-center justify-center bg-[url('/resources/assets/images/calathea_korbmarante.jpeg')] bg-no-repeat bg-cover">
+        <div class="rounded container mx-auto w-4/5 bg-white h-5/6">
             {{ $slot }}
         </div>
     </body>
