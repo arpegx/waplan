@@ -1,4 +1,4 @@
-<div class="flex items-center m-4 bg-blue-300 w-95">
+<div class="flex items-center m-4 w-95">
     <div class="mx-1">
         <img src="{{ Vite::asset($plant->image) }}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
     </div>
@@ -7,7 +7,7 @@
         <p class="font-serif">{{date('d.m.Y', strtotime($plant->watered_at))}}</p>
         @error('plant') <em>{{$message}}</em>  @enderror
     </div>
-    <div class="self-end bg-green-200">
+    <div class="self-end">
         <form wire:submit="water({{$plant->id}})">
             @csrf
             <button>

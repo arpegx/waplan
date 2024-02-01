@@ -10,8 +10,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="flex h-screen items-center justify-center bg-teal-100">
-        <div class="container mx-auto w-4/5 bg-white h-5/6 overflow-auto">
+    <body class="flex h-screen items-center justify-center">
+        <div class="container mx-auto w-4/5 bg-white h-5/6">
             {{ $slot }}
         </div>
     </body>
