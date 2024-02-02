@@ -1,6 +1,6 @@
 <div class="flex items-center m-1 w-95 border hover:bg-slate-100">
     <div class="mx-1">
-        <img src="{{ Vite::asset($plant->image) }}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
+        <img src="{{ asset('assets/images/calathea_korbmarante.jpeg') }}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
     </div>
     <div class="grow">
         <p class="font-serif leading-4">{{$plant->name}}</p>
