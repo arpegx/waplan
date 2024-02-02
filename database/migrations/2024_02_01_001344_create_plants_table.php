@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('plants', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('botanical');
             $table->string('image')->nullable();
             $table->datetime('watered_at');
             $table->timestamps();

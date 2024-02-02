@@ -4,7 +4,7 @@
     </div>
     <div class="grow">
         <p class="leading-4">{{$plant->name}}</p>
-        <p class="text-xs leading-4"><i>Botanical</i></p>
+        <p class="text-xs leading-4"><i>{{$plant->botanical}}</i></p>
         <p class="text-right leading-4 me-1">{{date('d.m.Y', strtotime($plant->watered_at))}}</p>
         @error('plant') <em>{{$message}}</em>  @enderror
     </div>
