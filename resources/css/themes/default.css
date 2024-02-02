@@ -1,5 +1,8 @@
-body {
-    background-image: url('/public/assets/images/calathea_korbmarante.jpeg');
-    background-repeat: no-repeat;
-    background-size: cover;
+html {
+    font-family: theme('fontFamily.serif') !important;
+    body {
+        background-image: url('/public/assets/images/calathea_korbmarante.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }

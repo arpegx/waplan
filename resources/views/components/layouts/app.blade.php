@@ -11,11 +11,7 @@
         
         <link rel="stylesheet" href="{{asset('assets/styles/build.css')}}">
     </head>
-    <body class="flex h-screen items-center justify-center"
-        style="background-image: url('assets/images/calathea_korbmarante.jpeg');
-            background-repeat: no-repeat;
-            background-size: cover;"
-        > 
+    <body class="flex h-screen items-center justify-center"> 
         <div class="rounded container mx-auto w-4/5 bg-white h-5/6">
             {{ $slot }}
         </div>

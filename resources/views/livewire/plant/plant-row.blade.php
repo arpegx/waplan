@@ -3,9 +3,9 @@
         <img src="{{ asset('assets/images/calathea_korbmarante.jpeg') }}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
     </div>
     <div class="grow">
-        <p class="font-serif leading-4">{{$plant->name}}</p>
-        <p class="font-serif text-xs leading-4"><i>Botanical</i></p>
-        <p class="text-right font-serif leading-4 me-1">{{date('d.m.Y', strtotime($plant->watered_at))}}</p>
+        <p class="leading-4">{{$plant->name}}</p>
+        <p class="text-xs leading-4"><i>Botanical</i></p>
+        <p class="text-right leading-4 me-1">{{date('d.m.Y', strtotime($plant->watered_at))}}</p>
         @error('plant') <em>{{$message}}</em>  @enderror
     </div>
     <div class="self-end">
