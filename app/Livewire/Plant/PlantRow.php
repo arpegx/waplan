@@ -8,30 +8,14 @@ use Livewire\Component;
 
 class PlantRow extends Component
 {
-    #[Reactive]
-    public Plant $plant;
-    
-    /**
-     * water the plant
-     * 
-     * @param Plant $plant
-     * @return void
-     */
-    public function water(Plant $plant): void {
-        // validation
-        $this->validate([ 'plant' => 'required', ]);
-        
-        // watering
-        $plant->water();
-        
-        // rerender parent
-        $this->dispatch('rerender');
-    }
+    #[Reactive] public Plant $plant;
+    #[Reactive] public bool $selected;
 
     public function render()
     {
         return view('livewire.plant.plant-row', [
             'plant'=> $this->plant,
+            'selected' => $this->selected,
         ]);
     }
 }

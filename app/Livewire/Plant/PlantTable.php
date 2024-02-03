@@ -12,6 +12,24 @@ use Livewire\WithPagination;
 class PlantTable extends Component
 {
     use WithPagination;
+
+    public $selected = array();
+
+    public function add(Plant $plant): void { 
+        $this->selected[] = $plant;
+    }
+
+    /**
+     * water the plant
+     * 
+     * @return void
+     */
+    public function water(): void {
+        foreach($this->selected as $plant) {
+            $plant->water();
+        }
+    }
+
     public function paginationView() { return 'vendor/livewire/custom-tailwind'; }
     
     #[On("rerender")]
@@ -19,7 +37,7 @@ class PlantTable extends Component
     public function render()
     {
         return view('livewire.plant.plant-table', [
-            'plants' => Plant::orderby('watered_at')->paginate(15),
+            'plants' => Plant::orderby('watered_at')->get(),
         ]);
     }
 }
