@@ -3,6 +3,7 @@
 namespace App\Livewire\Plant;
 
 use App\Models\Plant;
+use Livewire\Attributes\On;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
 

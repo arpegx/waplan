@@ -15,25 +15,11 @@ class PlantTable extends Component
 
     public $selected = array();
 
-    public function add(Plant $plant): void { 
-        $this->selected[] = $plant;
-    }
-
-    /**
-     * water the plant
-     * 
-     * @return void
-     */
-    public function water(): void {
-        foreach($this->selected as $plant) {
-            $plant->water();
-        }
-    }
-
-    public function paginationView() { return 'vendor/livewire/custom-tailwind'; }
+    public function add(Plant $plant): void { $this->selected[] = $plant; }
+    public function remove(Plant $plant): void { $this->selected = array_diff($this->selected, [$plant]); }
+    public function water(): void { foreach($this->selected as $plant) { $plant->water(); } }
     
     #[On("rerender")]
-    public function rerender(){ $this->render(); }
     public function render()
     {
         return view('livewire.plant.plant-table', [
