@@ -5,7 +5,7 @@
     {{-- wire:click -> for desktop --}}
     <div @if($selected) wire:touchstart.prevent="$parent.remove({{$plant->id}})" 
          @else wire:touchstart.prevent="$parent.add({{$plant->id}})" @endif
-         @class(['grow focus:bg-white', 'bg-red-50' => $selected])
+         @class(['grow focus:bg-white', 'bg-teal-50' => $selected])
          >
         <p class="leading-4">{{$plant->name}}</p>
         <p class="text-xs leading-4"><i>{{$plant->botanical}}</i></p>
