@@ -17,9 +17,8 @@ class PlantTable extends Component
 
     public function add(Plant $plant): void { $this->selected[] = $plant; }
     public function remove(Plant $plant): void { $this->selected = array_diff($this->selected, [$plant]); }
-    public function water(): void { foreach($this->selected as $plant) { $plant->water(); } }
+    public function water(): void { array_walk($this->selected, fn(Plant $plant) => $plant->water()); }
     
-    #[On("rerender")]
     public function render()
     {
         return view('livewire.plant.plant-table', [
