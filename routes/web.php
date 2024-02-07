@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlantController;
 use App\Livewire\Plant\PlantTable;
 use Illuminate\Support\Facades\Route;
 
@@ -15,8 +16,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", PlantTable::class)->name("plant.table");
+Route::get("/plant/create", [PlantController::class,"create"])->name("plant.create");
 
-Route::view('/welcome', 'welcome');
+
+// Route::view('/welcome', 'welcome');
 
 // Route::view('dashboard', 'dashboard')
 //     ->middleware(['auth', 'verified'])
