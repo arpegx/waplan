@@ -10,6 +10,9 @@ class Plant extends Model
     use HasFactory;
 
     protected $fillable = [
+        'name',
+        'botanical',
+        'image',
         'watered_at',
     ];
 

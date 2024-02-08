@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", PlantTable::class)->name("plant.table");
-Route::get("/plant/create", [PlantController::class,"create"])->name("plant.create");
-
+Route::get("/plants/create", [PlantController::class,"create"])->name("plants.create");
+Route::post("/plants", [PlantController::class,"store"])->name("plants.store");
 
 // Route::view('/welcome', 'welcome');
 
