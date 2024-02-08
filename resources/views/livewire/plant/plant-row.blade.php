@@ -1,12 +1,13 @@
 <div @class(["flex items-center m-1 w-95 border", "shadow-md -translate-y-1 bg-blue-50" => $selected])>
     <div class="mx-1">
-        <img src="{{ asset('assets/images/calathea_korbmarante.jpeg') }}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
+        <a wire:navigate href="{{route('plants.edit', ['plant' => $plant->id])}}" title="{{__('Redirect to Edit')}}">
+            <img src="{{ asset('assets/images/calathea_korbmarante.jpeg') }}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
+        </a>
     </div>
     {{-- wire:click -> for desktop --}}
     <div @if($selected) wire:touchstart.prevent="$parent.remove({{$plant->id}})" 
          @else wire:touchstart.prevent="$parent.add({{$plant->id}})" @endif
-         class="grow"
-        >
+         class="grow">
         <p class="leading-4">{{$plant->name}}</p>
         <p class="text-xs leading-4"><i>{{$plant->botanical}}</i></p>
     </div>

@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get("/", PlantTable::class)->name("plant.table");
 Route::get("/plants/create", [PlantController::class,"create"])->name("plants.create");
 Route::post("/plants", [PlantController::class,"store"])->name("plants.store");
+Route::get("/plants/{plant}", [PlantController::class,"edit"])->name("plants.edit");
+Route::put("/plants/{plant}", [PlantController::class,"update"])->name("plants.update");
 
 // Route::view('/welcome', 'welcome');
 
