@@ -24,21 +24,26 @@
                         </button>
                     </div>
                 </div>
-                {{--todo Security Question --}}
+
+
+                {{-- Delete --}}
                 <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 me-2 px-4 rounded">
                     <button data-open-modal type="button" title="delete">{{__('delete')}}</button>
                 </div>
 
                 <dialog data-modal>
-                    {{-- Button: Delete --}} 
-                    <form action="{{route("plants.destroy", ["plant" => $plant->id])}}" method="POST">
+                    <form action="{{route("plants.destroy", ["plant" => $plant->id])}}" method="POST" class="p-5">
                         @csrf @method('DELETE')
-                        <p>{{__('Do you really like to delete the plant')}} {{$plant->name}} ?</p>
-                        <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 me-2 px-4 rounded">
-                            <button type="submit" title="delete" >{{__('delete')}}</button>
-                        </div>
-                        <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 me-2 px-4 rounded">
-                            <button data-close-modal type="button">{{__('cancel')}}</button>
+                        <p>{{__('Do you really like')}}</p>
+                        <p>{{__('to delete the plant')}} ?</p>
+                        <em>{{$plant->name}}</em>
+                        <div class="flex">
+                            <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 me-2 px-4 rounded">
+                                <button type="submit" title="delete" >{{__('delete')}}</button>
+                            </div>
+                            <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 me-2 px-4 rounded">
+                                <button data-close-modal type="button">{{__('cancel')}}</button>
+                            </div>
                         </div>
                     </form>
                 </dialog>
@@ -48,13 +53,8 @@
                     const closeButton = document.querySelector("[data-close-modal]")
                     const modal = document.querySelector("[data-modal]")
 
-                    openButton.addEventListener("click",  () => {
-                        modal.showModal()
-                    })
-
-                    closeButton.addEventListener("click", () => {
-                        modal.close()
-                    })
+                    openButton.addEventListener("click",  () => { modal.showModal() })
+                    closeButton.addEventListener("click", () => { modal.close() })
                 </script>
 
 
