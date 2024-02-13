@@ -24,7 +24,16 @@
                         </button>
                     </div>
                 </div>
-    
+                {{--todo Security Question --}}
+                {{-- Button: Delete --}} 
+                <form action="{{route("plants.destroy", ["plant" => $plant->id])}}" method="POST">
+                    @csrf @method('DELETE')
+                    <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 me-2 px-4 rounded">
+                        <button type="submit" title="delete">{{__('delete')}}</button>
+                    </div>
+                </form>
+
+
                 {{-- Button: Cancel --}}
                 <div class="grid justify-items-end">
                     <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

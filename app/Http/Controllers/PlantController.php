@@ -87,4 +87,16 @@ class PlantController extends Controller
             ->route('plant.table');
             // ->with('success','Plant successfuly updated'); //! no displaying established 
     }
+
+    /**
+     * delete a plant
+     * 
+     * @param Plant
+     * @return RedirectResponse
+     */
+    public function destroy(Plant $plant): RedirectResponse {
+        $plant->delete();
+        return redirect()
+            ->route('plant.table');
+    }
 }
