@@ -9,12 +9,12 @@
 
             {{-- Nickname --}}
             <label hidden for="name">{{__('Nickname')}}</label>
-            @error('name') <em> {{$message}}</em> @enderror
+            @error('name') <em>{{$message}}</em> @enderror
             <input class="w-full mb-2" type="text" name="name" id="name" placeholder="{{$plant->name}}">
             
             {{-- Botanical --}}
             <label hidden for="botanical">{{__('Botanical')}}</label>
-            @error('botanical') <em> {{$message}}</em> @enderror
+            @error('botanical') <em>{{$message}}</em> @enderror
             <input class="w-full mb-2" type="text" name="botanical" id="botanical" placeholder="{{$plant->botanical}}">
 
             <div class="flex">

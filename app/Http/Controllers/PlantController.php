@@ -25,6 +25,7 @@ class PlantController extends Controller
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse {
+        //! fill up
         $request->validate([
             "name"=> "required | unique:plants",
             // "botanical"=> "required",
@@ -39,8 +40,8 @@ class PlantController extends Controller
         ]);
 
         return redirect()
-            ->route('plant.table')
-            ->with("success","Plant created");
+            ->route('plant.table');
+            // ->with("success","Plant created"); //! no displaying established 
     }
     
     /**
@@ -56,6 +57,7 @@ class PlantController extends Controller
     /**
      * display view to edit a plant
      * 
+     * @param Plant $plant 
      * @return View
      */
     public function edit(Plant $plant): View {
@@ -74,6 +76,7 @@ class PlantController extends Controller
             'name'=> 'unique:plants',
             ]);
 
+        //! fill up
         $plant->update([
             'name'=> request('name') ?? $plant->name,
             'botanical'=> request('botanical') ?? $plant->botanical,
@@ -81,7 +84,7 @@ class PlantController extends Controller
             ]);
 
         return redirect()
-            ->route('plant.table')
-            ->with('success','Plant successfuly updated');
+            ->route('plant.table');
+            // ->with('success','Plant successfuly updated'); //! no displaying established 
     }
 }
