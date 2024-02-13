@@ -2,22 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Plant;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class PlantController extends Controller
 {
     /**
      * display the view to create a plant
+     * 
+     * @return View
      */
-    public function create(){
+    public function create(): View {
         return view("plant.create");
     }
     
     /**
      * save new created plant
+     * 
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request){
+    public function store(Request $request): RedirectResponse {
         $request->validate([
             "name"=> "required | unique:plants",
             // "botanical"=> "required",
@@ -35,18 +42,34 @@ class PlantController extends Controller
             ->route('plant.table')
             ->with("success","Plant created");
     }
+    
+    /**
+     * show plant
+     * 
+     * @param Plant $plant
+     * @return View 
+     */
+    public function show(Plant $plant): View {
+        return view("plant.show", compact("plant"));
+    }
 
     /**
      * display view to edit a plant
+     * 
+     * @return View
      */
-    public function edit(Plant $plant){
+    public function edit(Plant $plant): View {
         return view("plant.edit", compact('plant'));
     }
 
     /**
      * save updated changes to a plant
+     * 
+     * @param Request $request
+     * @param Plant $plant
+     * @return RedirectResponse
      */
-    public function update(Request $request, Plant $plant){
+    public function update(Request $request, Plant $plant): RedirectResponse {
         $request->validate([
             'name'=> 'unique:plants',
             ]);
