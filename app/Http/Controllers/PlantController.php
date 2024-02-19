@@ -29,21 +29,20 @@ class PlantController extends Controller
         $request->validate([
             "name"=> "required | unique:plants",
             "watered_at" => "required",
+            "avatar" => 'image | mimes:jpg,png',
             ]);
 
-        $avatar = $request->file("avatar");
-        $avatar->storeAs('public/images/plant', request('name').".".$avatar->extension());
+        $filename = request("name").".".$request->file("avatar")->extension();
+        $request->file("avatar")->storeAs('public/images/plant', $filename);
 
         $plant = Plant::create([
             "name"=> request("name"),
             "botanical" => request("botanical"),
-            "image" => "./storage/images/plant/".request("name").".".$avatar->extension(),
+            "image" => "./storage/images/plant/".$filename,
             "watered_at" => request('watered_at'),
         ]);
                 
-        return redirect()
-            ->route('plant.table');
-            // ->with("success","Plant created"); //! no displaying established 
+        return redirect()->route('plant.table');
     }
     
     /**
@@ -78,16 +77,12 @@ class PlantController extends Controller
             'name'=> 'unique:plants',
             ]);
 
-        //! fill up
         $plant->update([
             'name'=> request('name') ?? $plant->name,
             'botanical'=> request('botanical') ?? $plant->botanical,
-            // 'image'=> 'resources/assets/images/calathea_korbmarante.jpeg',
             ]);
 
-        return redirect()
-            ->route('plant.table');
-            // ->with('success','Plant successfuly updated'); //! no displaying established 
+        return redirect()->route('plant.table');
     }
 
     /**
@@ -98,7 +93,7 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant): RedirectResponse {
         $plant->delete();
-        return redirect()
-            ->route('plant.table');
+        
+        return redirect()->route('plant.table');
     }
 }
