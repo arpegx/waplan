@@ -25,23 +25,22 @@ class PlantController extends Controller
      * @return RedirectResponse
      */
     public function store(Request $request): RedirectResponse {
-        //! fill up
-        dd($request->file('avatar')->store('profiles'));
 
         $request->validate([
             "name"=> "required | unique:plants",
             "watered_at" => "required",
-            // "botanical"=> "required",
-            // "image"=> "required",
             ]);
 
-        Plant::create([
+        $avatar = $request->file("avatar");
+        $avatar->storeAs('public/images/plant', request('name').".".$avatar->extension());
+
+        $plant = Plant::create([
             "name"=> request("name"),
             "botanical" => request("botanical"),
-            // "image" => 'resources/assets/images/calathea_korbmarante.jpeg',
+            "image" => "./storage/images/plant/".request("name").".".$avatar->extension(),
             "watered_at" => request('watered_at'),
         ]);
-
+                
         return redirect()
             ->route('plant.table');
             // ->with("success","Plant created"); //! no displaying established 
