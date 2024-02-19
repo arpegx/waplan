@@ -1,15 +1,21 @@
 <x-app-layout>
     <h1 class="headline">{{__('Plant')}}</h1>
 
-    <form action="{{route('plants.store')}}" method="POST">
+    <form action="{{route('plants.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <fieldset>
             <legend>{{__('Create')}}</legend>
 
+            {{-- Image --}}
+            <label for="avatar">{{__('Image')}}</label>
+            @error('avatar') <em> {{$message}}</em> @enderror
+            <input class="w-full mb-2" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+            {{-- value="{{old('image')}}" --}}
+
             {{-- Nickname --}}
             <label hidden for="name">{{__('Nickname')}}</label>
             @error('name') <em> {{$message}}</em> @enderror
-            <input required class="w-full mb-2" type="text" name="name" id="name" placeholder="Nickname" value="{{old('name')}}">
+            <input {{-- required --}} class="w-full mb-2" type="text" name="name" id="name" placeholder="Nickname" value="{{old('name')}}">
             
             {{-- Botanical --}}
             <label hidden for="botanical">{{__('Botanical')}}</label>
@@ -20,7 +26,7 @@
             <div class="flex">
                 <label for="watered_at" class="flex-auto">{{__('Watered at')}}</label>
                 @error('watered_at') <em> {{$message}} </em> @enderror
-                <input required type="date" name="watered_at" id="watered_at" class="flex-auto mb-2" value="{{old('watered_at')}}">
+                <input {{-- required --}} type="date" name="watered_at" id="watered_at" class="flex-auto mb-2" value="{{old('watered_at')}}">
             </div>
 
             <div class="flex">

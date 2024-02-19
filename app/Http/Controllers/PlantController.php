@@ -26,6 +26,8 @@ class PlantController extends Controller
      */
     public function store(Request $request): RedirectResponse {
         //! fill up
+        dd($request->file('avatar')->store('profiles'));
+
         $request->validate([
             "name"=> "required | unique:plants",
             "watered_at" => "required",
