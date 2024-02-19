@@ -31,14 +31,16 @@ class PlantController extends Controller
             "watered_at" => "required",
             "avatar" => 'image | mimes:jpg,png',
             ]);
-
-        $filename = request("name").".".$request->file("avatar")->extension();
-        $request->file("avatar")->storeAs('public/images/plant', $filename);
+        
+        if($request->file("avatar") !== null){
+            $filename = request("name").".".$request->file("avatar")->extension();
+            $request->file("avatar")->storeAs('public/images/plant', $filename);
+        }
 
         $plant = Plant::create([
             "name"=> request("name"),
             "botanical" => request("botanical"),
-            "image" => "./storage/images/plant/".$filename,
+            "image" => $request->file("avatar") !== null ? "./storage/images/plant/".$filename : null,
             "watered_at" => request('watered_at'),
         ]);
                 

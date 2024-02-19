@@ -4,7 +4,6 @@ namespace App\Livewire\Plant;
 
 use Livewire\Component;
 use App\Models\Plant;
-use Livewire\Attributes\On;
 use Livewire\Attributes\Title;
 use Livewire\WithPagination;
 
