@@ -28,15 +28,16 @@ class PlantController extends Controller
         //! fill up
         $request->validate([
             "name"=> "required | unique:plants",
+            "watered_at" => "required",
             // "botanical"=> "required",
             // "image"=> "required",
             ]);
 
         Plant::create([
             "name"=> request("name"),
-            "botanical" => fake('es_ES')->name(),
-            "image" => 'resources/assets/images/calathea_korbmarante.jpeg',
-            "watered_at" => fake()->datetime(),
+            "botanical" => request("botanical"),
+            // "image" => 'resources/assets/images/calathea_korbmarante.jpeg',
+            "watered_at" => request('watered_at'),
         ]);
 
         return redirect()
