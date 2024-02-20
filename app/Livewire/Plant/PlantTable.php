@@ -17,9 +17,11 @@ class PlantTable extends Component
     public function add(Plant $plant): void { $this->selected[] = $plant; }
     public function remove(Plant $plant): void { $this->selected = array_diff($this->selected, [$plant]); }
     
-    public function water(): void { 
-        array_walk($this->selected, fn(Plant $plant) => $plant->water()); 
-        session()->flash('status', 'Plant successfully watered'); 
+    public function water() { 
+        if(!empty($this->selected)){
+            array_walk($this->selected, fn(Plant $plant) => $plant->water());
+            session()->flash('status', 'Plant successfully watered');
+        }
     }
     
     public function render()
