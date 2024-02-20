@@ -8,8 +8,8 @@
                 key($plant->id))
         @endforeach
     </div>
-    <div class="flex me-5 h-full justify-items-end mt-4">
-        <div>
+    <div class="flex justify-end h-full justify-items-end mt-4">
+        <div class="me-3">
             <form wire:submit="water()">
                 @csrf
                 <button class="w-10 h-10 border-2 border-blue-400 rounded-full p-1">
@@ -17,7 +17,7 @@
                 </button>
             </form>
         </div>
-        <div class="me-5">
+        <div class="me-3">
             <button class="inline w-10 h-10 border-2 border-blue-400 rounded-full p-1">
                 <a wire:navigate href="{{route('plants.create')}}">
                     <img src="data:image/png;base64,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">
@@ -25,7 +25,7 @@
             </button>
         </div>
     </div>
-    <div id="session_status" class="bg-blue-300 text-center">
+    <div id="session_status" class="bg-blue-300 text-center mt-5 rounded-b">
         @session('status')<div>{{$value}}</div>@endsession
     </div>
 </div>
