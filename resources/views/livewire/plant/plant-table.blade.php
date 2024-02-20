@@ -25,4 +25,7 @@
             </button>
         </div>
     </div>
+    <div id="session_status" class="bg-blue-300 text-center">
+        @session('status')<div>{{$value}}</div>@endsession
+    </div>
 </div>

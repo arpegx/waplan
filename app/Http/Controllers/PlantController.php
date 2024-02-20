@@ -32,7 +32,7 @@ class PlantController extends Controller
             "avatar" => 'image | mimes:jpg,png',
             ]);
         
-        if($request->file("avatar") !== null){
+        if($request->file("avatar")){
             $filename = request("name").".".$request->file("avatar")->extension();
             $request->file("avatar")->storeAs('public/images/plant', $filename);
         }
@@ -43,8 +43,10 @@ class PlantController extends Controller
             "image" => $request->file("avatar") !== null ? "./storage/images/plant/".$filename : null,
             "watered_at" => request('watered_at'),
         ]);
-                
-        return redirect()->route('plant.table');
+
+        session()->flash('status', 'Plant successfully stored.');
+
+        return to_route('plant.table');
     }
     
     /**
@@ -84,7 +86,9 @@ class PlantController extends Controller
             'botanical'=> request('botanical') ?? $plant->botanical,
             ]);
 
-        return redirect()->route('plant.table');
+        session()->flash('status', 'Plant successfully updated');
+
+        return to_route('plant.table');
     }
 
     /**
@@ -95,7 +99,9 @@ class PlantController extends Controller
      */
     public function destroy(Plant $plant): RedirectResponse {
         $plant->delete();
-        
-        return redirect()->route('plant.table');
+
+        session()->flash('status', 'Plant successfully deleted');
+
+        return to_route('plant.table');
     }
 }

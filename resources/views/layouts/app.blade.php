@@ -14,7 +14,6 @@
     <body class="flex h-screen items-center justify-center"> 
         <div class="rounded container mx-auto w-4/5 bg-white h-5/6">
             {{ $slot }}
-            @session('success')<div>{{$value}}</div>@endsession
         </div>
     </body>
 </html>
