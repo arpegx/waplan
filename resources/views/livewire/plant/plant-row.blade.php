@@ -1,7 +1,11 @@
 <div @class(["flex items-center m-1 w-95 border", "shadow-md -translate-y-1 bg-blue-50" => $selected])>
     <div class="mx-1">
         <a wire:navigate href="{{route('plants.show', ['plant' => $plant->id])}}" title="{{__('Redirect to Show')}}">
-            <img src="{{ asset($plant->image)}}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
+            @if ($plant->image)
+                <img src="{{ asset($plant->image)}}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">
+            @else
+                <img src="{{ asset('assets/images/calathea_korbmarante.jpeg')}}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">    
+            @endif
         </a>
     </div>
     {{-- wire:click -> for desktop --}}
