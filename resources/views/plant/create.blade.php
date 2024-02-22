@@ -27,14 +27,14 @@
 
             {{-- Watered_at --}}
             <div class="flex mb-2">
-                <label for="watered_at" class="flex-auto">{{__('Watered at')}}</label>
+                <label for="watered_at" class="flex-auto self-center">{{__('Watered at')}}</label>
                 @error('watered_at') <em> {{$message}} </em> @enderror
                 <input required type="date" name="watered_at" id="watered_at" 
-                    class="flex-auto mb-2 h-6"
+                    class="flex-auto mb-2"
                     value="{{old('watered_at')}}">
             </div>
 
-            <div class="actions mt-10">
+            <div class="actions mt-7">
                 {{-- Button: Save --}}
                 <div class="grid justify-items-end me-2">
                     <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

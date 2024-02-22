@@ -37,11 +37,11 @@
         </div>
 
         {{-- Watered_at --}}
-        <div class="flex mb-2">
-            <label for="watered_at" class="flex-auto">{{__('Watered at')}}</label>
+        <div class="flex">
+            <label for="watered_at" class="flex-auto self-center">{{__('Watered at')}}</label>
             @error('watered_at') <em> {{$message}} </em> @enderror
             <input readonly type="date" name="watered_at" id="watered_at" 
-                class="flex-auto mb-2 h-6" 
+                class="flex-auto" 
                 value="{{date('Y-m-d', strtotime($plant->watered_at))}}"
                 >
         </div>
@@ -78,6 +78,7 @@
                     </div>
                 </form>
             </dialog>
+            <script src="{{ asset('assets/scripts/dialog.js') }}"></script>
 
             {{-- Button: Cancel --}}
             <div class="grid justify-items-end">

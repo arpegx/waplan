@@ -1,6 +1,6 @@
 <div>
     <h1 class="headline">{{__('Plants')}}</h1>
-    <div class="h-[37rem] overflow-auto border border-gray-300">
+    <div class="h-[36rem] overflow-auto border border-gray-300">
         @foreach ($plants as $plant)
             @livewire('plant.plant-row', [
                 'plant' => $plant, 
