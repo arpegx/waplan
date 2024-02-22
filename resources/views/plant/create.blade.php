@@ -1,20 +1,24 @@
 <x-app-layout>
+<div class="plant">
     <h1 class="headline">{{__('Plant')}}</h1>
 
-    <form action="{{route('plants.store')}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <fieldset>
-            <legend>{{__('Create')}}</legend>
+    <fieldset>
+    <legend>{{__('Create')}}</legend>
+        <form action="{{route('plants.store')}}" method="POST" enctype="multipart/form-data" class="h-full">
+            @csrf
 
             {{-- Image --}}
             <label for="avatar">{{__('Image')}}</label>
             @error('avatar') <em> {{$message}}</em> @enderror
-            <input class="w-full mb-2" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
+            <input name="avatar" id="avatar" accept="image/png, image/jpeg"
+                class="mb-2 w-full" 
+                type="file" 
+                >
 
             {{-- Nickname --}}
             <label hidden for="name">{{__('Nickname')}}</label>
             @error('name') <em> {{$message}}</em> @enderror
-            <input {{-- required --}} class="w-full mb-2" type="text" name="name" id="name" placeholder="Nickname" value="{{old('name')}}">
+            <input required class="w-full mb-2" type="text" name="name" id="name" placeholder="Nickname" value="{{old('name')}}">
             
             {{-- Botanical --}}
             <label hidden for="botanical">{{__('Botanical')}}</label>
@@ -22,13 +26,15 @@
             <input class="w-full mb-2" type="text" name="botanical" id="botanical" placeholder="{{__('Botanical')}}" value="{{old('botanical')}}">
 
             {{-- Watered_at --}}
-            <div class="flex">
+            <div class="flex mb-2">
                 <label for="watered_at" class="flex-auto">{{__('Watered at')}}</label>
                 @error('watered_at') <em> {{$message}} </em> @enderror
-                <input {{-- required --}} type="date" name="watered_at" id="watered_at" class="flex-auto mb-2" value="{{old('watered_at')}}">
+                <input required type="date" name="watered_at" id="watered_at" 
+                    class="flex-auto mb-2 h-6"
+                    value="{{old('watered_at')}}">
             </div>
 
-            <div class="flex justify-end">
+            <div class="actions mt-10">
                 {{-- Button: Save --}}
                 <div class="grid justify-items-end me-2">
                     <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -46,7 +52,8 @@
                 </div>
             </div>
 
-        </fieldset>
-    </form>
+        </form>
+    </fieldset>
+</div>
 
 </x-app-layout>
