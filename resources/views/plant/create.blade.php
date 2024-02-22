@@ -10,7 +10,6 @@
             <label for="avatar">{{__('Image')}}</label>
             @error('avatar') <em> {{$message}}</em> @enderror
             <input class="w-full mb-2" type="file" name="avatar" id="avatar" accept="image/png, image/jpeg">
-            {{-- value="{{old('image')}}" --}}
 
             {{-- Nickname --}}
             <label hidden for="name">{{__('Nickname')}}</label>

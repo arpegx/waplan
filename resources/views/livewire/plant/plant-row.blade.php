@@ -1,5 +1,5 @@
 <div @class(["flex items-center m-1 w-95 border", "shadow-md -translate-y-1 bg-blue-50" => $selected])>
-    <div class="mx-1">
+    <div class="m-1">
         <a wire:navigate href="{{route('plants.show', ['plant' => $plant->id])}}" title="{{__('Redirect to Show')}}">
             @if ($plant->image)
                 <img src="{{ asset($plant->image)}}" alt="{{__('Image of the Plant')}}" title="{{__('Image of the Plant')}}" class="rounded h-10 w-10">

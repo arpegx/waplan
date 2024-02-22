@@ -31,7 +31,7 @@ class PlantController extends Controller
             "watered_at" => "required",
             "avatar" => 'image | mimes:jpg,png',
             ]);
-        
+            
         if($request->file("avatar")){
             $filename = request("name").".".$request->file("avatar")->extension();
             $request->file("avatar")->storeAs('public/images/plant', $filename);
@@ -45,7 +45,7 @@ class PlantController extends Controller
         ]);
 
         session()->flash('status', 'Plant successfully stored.');
-
+        
         return to_route('plant.table');
     }
     
