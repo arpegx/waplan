@@ -78,7 +78,14 @@
                     </div>
                 </form>
             </dialog>
-            <script src="{{ asset('assets/scripts/dialog.js') }}"></script>
+            <script>
+                const openButton = document.querySelector("[data-open-modal]")
+                const closeButton = document.querySelector("[data-close-modal]")
+                const modal = document.querySelector("[data-modal]")
+                
+                openButton.addEventListener("touchstart",  () => { modal.showModal() })
+                closeButton.addEventListener("touchstart", () => { modal.close(); })
+            </script>
 
             {{-- Button: Cancel --}}
             <div class="grid justify-items-end">
