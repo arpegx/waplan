@@ -1,11 +1,29 @@
 <x-app-layout>
+<div class="plant">
     <h1 class="headline">{{__('Plant')}}</h1>
 
-    <form action="{{route('plants.update', ['plant' => $plant->id])}}" method="POST">
-        @method('PUT')
-        @csrf
-        <fieldset>
-            <legend>{{__('Edit')}}</legend>
+    <fieldset>
+    <legend>{{__('Edit')}}</legend>
+        <form action="{{route('plants.update', ['plant' => $plant->id])}}" method="POST" class="h-full">
+            @method('PUT')
+            @csrf
+
+            {{-- Image --}}
+            <div class="avatar">
+                @if ($plant->image)
+                <img src="{{ asset($plant->image)}}" 
+                    alt="{{__('Image of the Plant')}}" 
+                    title="{{__('Image of the Plant')}}" 
+                    class="rounded-full h-20 w-20 mx-auto"
+                    >
+                @else
+                <img src="{{ asset('assets/images/calathea_korbmarante.jpeg')}}" 
+                    alt="{{__('Image of the Plant')}}" 
+                    title="{{__('Image of the Plant')}}" 
+                    class="rounded-full h-20 w-20 mx-auto"
+                    >    
+                @endif
+            </div>
 
             {{-- Nickname --}}
             <label hidden for="name">{{__('Nickname')}}</label>
@@ -17,7 +35,17 @@
             @error('botanical') <em>{{$message}}</em> @enderror
             <input class="w-full mb-2" type="text" name="botanical" id="botanical" placeholder="{{$plant->botanical}}">
 
-            <div class="flex">
+            {{-- Watered_at --}}
+            <div class="flex mb-2">
+                <label for="watered_at" class="flex-auto">{{__('Watered at')}}</label>
+                @error('watered_at') <em> {{$message}} </em> @enderror
+                <input readonly type="date" name="watered_at" id="watered_at" 
+                    class="flex-auto mb-2 h-6" 
+                    value="{{date('Y-m-d', strtotime($plant->watered_at))}}"
+                    >
+            </div>
+
+            <div class="actions">
                 {{-- Button: Save --}}
                 <div class="grid justify-items-end me-2">
                     <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -35,7 +63,7 @@
                 </div>
             </div>
 
-        </fieldset>
-    </form>
-
+        </form>
+    </fieldset>
+</div>
 </x-app-layout>

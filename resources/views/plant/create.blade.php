@@ -28,7 +28,7 @@
                 <input {{-- required --}} type="date" name="watered_at" id="watered_at" class="flex-auto mb-2" value="{{old('watered_at')}}">
             </div>
 
-            <div class="flex">
+            <div class="flex justify-end">
                 {{-- Button: Save --}}
                 <div class="grid justify-items-end me-2">
                     <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

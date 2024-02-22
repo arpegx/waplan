@@ -25,6 +25,19 @@ html {
         padding-right: 0.75em;
         border: 2px groove black;
     }
+    
+    .plant {
+        height: 37rem;
+        .avatar {
+            margin-bottom: 1rem;
+        }
+        .actions {
+            display: flex;
+            justify-content: end;
+            position: relative;
+            top: 50%;
+        }
+    }
 }
 
 /*? Debugging */
