@@ -48,16 +48,6 @@
                     </form>
                 </dialog>
 
-                <script>
-                    const openButton = document.querySelector("[data-open-modal]")
-                    const closeButton = document.querySelector("[data-close-modal]")
-                    const modal = document.querySelector("[data-modal]")
-
-                    openButton.addEventListener("click",  () => { modal.showModal() })
-                    closeButton.addEventListener("click", () => { modal.close() })
-                </script>
-
-
                 {{-- Button: Cancel --}}
                 <div class="grid justify-items-end">
                     <div class="w-fit bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
